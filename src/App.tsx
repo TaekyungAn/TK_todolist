@@ -1,6 +1,9 @@
+import { isDarkAtom } from "atoms";
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { createGlobalStyle } from "styled-components";
+import { atom, useRecoilValue } from "recoil";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import { darkTheme, lightTheme } from "theme";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -60,13 +63,20 @@ a{
 }
 `;
 
+const AppWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 function App() {
+  const isDark = useRecoilValue(isDarkAtom);
   return (
-    <div className="App">
-      <GlobalStyle />
-      Hello world22
-      <Outlet />
-    </div>
+    <AppWrapper className="App">
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+        <GlobalStyle />
+        <Outlet />
+      </ThemeProvider>
+    </AppWrapper>
   );
 }
 
