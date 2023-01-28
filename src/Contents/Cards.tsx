@@ -14,8 +14,8 @@ const CardsWrapper = styled.div`
   align-items: center;
   position: relative;
 
-  @media (max-width: 900px) {
-    padding-left: 100px;
+  @media (max-width: 500px) {
+    padding-left: 25px;
   }
 
   > div {
@@ -26,17 +26,8 @@ const CardsWrapper = styled.div`
     column-gap: 30px;
     row-gap: 20px;
 
-    @media (max-width: 2000px) {
-      display: grid;
-      grid-template-rows: repeat(1, 500px);
-      grid-template-columns: repeat(6, 400px);
-    }
-
-    @media (max-width: 1500px) {
-      width: 500px;
-      display: grid;
-      grid-template-rows: repeat(1, 500px);
-      grid-template-columns: repeat(6, 400px);
+    @media (max-width: 500px) {
+      align-items: center;
     }
   }
 `;
@@ -44,7 +35,8 @@ const CardsWrapper = styled.div`
 function Cards() {
   return (
     <CardsWrapper className="Cards">
-      <Button arrow="▶" />
+      {/* width가 500보다 클때만 버튼 나타나게 하고싶음 */}
+      {true && <Button arrow="▶" />}
       <div>
         <Card />
         <Card />

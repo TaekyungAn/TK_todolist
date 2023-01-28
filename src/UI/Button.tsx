@@ -19,6 +19,9 @@ const ButtonWrapper = styled.button`
   right: 50px;
 
   cursor: pointer;
+  @media (max-width: 400px) {
+    padding-left: 0px;
+  }
 `;
 
 interface IArrowProps {
