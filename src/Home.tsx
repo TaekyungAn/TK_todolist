@@ -1,4 +1,4 @@
-import Cards from "Contents/Cards";
+import Cards from "Contents/Card/Cards";
 import Main from "Contents/MainContent";
 import Footer from "Footer/Footer";
 import Header from "Header/Header";

@@ -1,3 +1,5 @@
+import { CardStateContext } from "App";
+import { useContext } from "react";
 import styled from "styled-components";
 import Button from "UI/Button";
 import Card from "UI/Card";
@@ -33,17 +35,15 @@ const CardsWrapper = styled.div`
 `;
 
 function Cards() {
+  const cardData = useContext(CardStateContext);
   return (
     <CardsWrapper className="Cards">
       {/* width가 500보다 클때만 버튼 나타나게 하고싶음 */}
       {true && <Button arrow="▶" />}
       <div>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {cardData?.map((data) => (
+          <Card key={data.id} {...data} />
+        ))}
       </div>
     </CardsWrapper>
   );
